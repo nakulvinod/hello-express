@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Input type="text" id="inp"></Input>
+    <button id="thebut" onclick="doit()" ></button>
+</body>
+<script>
+         
+    const doit=()=>{   
+    inp={name:document.getElementById("inp").value}
+
+    fetch("http://localhost:3000/data", {
+    method: "POST",
+    headers: {'Content-Type': 'application/json'}, 
+    body: JSON.stringify(inp)
+    }).then(res => {
+  console.log("Request complete! response:", res);
+})}
+</script>
+</html>
